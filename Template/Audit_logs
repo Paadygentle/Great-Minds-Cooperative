@@ -1,0 +1,7 @@
+{% extends "base.html" %} {% block title %}Audit Logs · Great Minds Cooperative{% endblock %} {% block content %}
+Audit Logs
+{% for log in logs %}{% else %}{% endfor %}
+Date	User	Action	Details
+{{ log.created_at }}	{{ log.email or 'System' }}	{{ log.action }}	{{ log.details }}
+No audit events yet.
+{% endblock %}
