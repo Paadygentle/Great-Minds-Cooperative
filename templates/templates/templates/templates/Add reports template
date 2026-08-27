@@ -1,0 +1,8 @@
+{% extends "base.html" %} {% block title %}Reports · Great Minds Cooperative{% endblock %} {% block content %}
+Cooperative Reports
+Net Savings{{ savings|money }}
+Share Capital{{ shares|money }}
+Approved Loan Principal{{ loans|money }}
+Repayments{{ repayments|money }}
+Outstanding Principal{{ outstanding|money }}
+{% endblock %}
