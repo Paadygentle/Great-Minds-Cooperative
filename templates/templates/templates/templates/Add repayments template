@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% block title %}Repayments · Great Minds Cooperative{% endblock %} {% block content %}
+Loan Repayments
+Loan
+Select loan
+Amount
+Payment date
+mm/dd/yyyy
+Description
+Record repayment
+{% endblock %}
