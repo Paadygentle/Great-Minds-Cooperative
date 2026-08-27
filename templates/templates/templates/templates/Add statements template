@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block title %}Statements · Great Minds Cooperative{% endblock %} {% block content %}
+Member Statement
+{% if current_role == 'admin' %}
+
+Select member
+View
+{% endif %} {% if member %}
+{{ member.first_name }} {{ member.last_name }}
+{{ member.member_no }} · {{ member.email or '' }}
+
+{% for e in entries %}{% else %}{% endfor %}
+Date	Type	Amount	Description
+{{ e.transaction_date }}	{{ e.type }}	{{ e.amount|money }}	{{ e.description }}
+No transactions.
+Loans
+{% for l in loans %}{% else %}{% endfor %}
+Loan	Principal	Status	Repaid	Outstanding principal*
+#{{ l.id }}	{{ l.principal|money }}	{{ l.status }}	{{ l.repaid|money }}	{{ [l.principal-l.repaid, 0]|max|money }}
+No loans.
+*V1 displays principal outstanding; interest/amortization can be expanded after the interface is validated.
+{% else %}
+Select a member to view a statement.
+
+{% endif %} {% endblock %}
