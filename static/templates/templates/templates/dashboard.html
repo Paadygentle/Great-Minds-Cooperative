@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block title %}Dashboard · Great Minds Cooperative{% endblock %} {% block content %}
+OVERVIEW
+
+Dashboard
+{% if current_role == 'admin' %}
+Members{{ member_count }}
+Net Savings{{ savings_total|money }}
+Share Capital{{ shares_total|money }}
+Approved Loans{{ loan_total|money }}
+{% else %}
+My Savings{{ member_savings|money }}
+My Shares{{ member_shares|money }}
+Approved Loans{{ member_loans|money }}
+{% endif %}
+Welcome{% if member %}, {{ member.first_name }}{% endif %}
+Use the navigation above to manage cooperative records.
+
+{% endblock %}
