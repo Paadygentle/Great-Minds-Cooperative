@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block title %}Shares · Great Minds Cooperative{% endblock %} {% block content %}
+Share Capital
+{% if current_role == 'admin' %}Member
+Select member
+{% endif %}
+Amount
+Date
+mm/dd/yyyy
+Description
+Record share capital
+{% for s in shares %}{% else %}{% endfor %}
+Date	Member	Amount	Description
+{{ s.transaction_date }}	{{ s.member_no }} — {{ s.first_name }} {{ s.last_name }}	{{ s.amount|money }}	{{ s.description }}
+No share records.
+{% endblock %}
