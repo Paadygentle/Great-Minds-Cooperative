@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block title %}Loans · Great Minds Cooperative{% endblock %} {% block content %}
+Loans
+{% if current_role == 'admin' %}Member
+Select member
+{% endif %}
+Principal
+Annual interest rate (%)
+Term (months)
+Application date
+mm/dd/yyyy
+Apply for loan
+{% for l in loans %}{% else %}{% endfor %}
+ID	Member	Principal	Interest	Term	Status	Repaid	Action
+#{{ l.id }}	{{ l.member_no }} — {{ l.first_name }} {{ l.last_name }}	{{ l.principal|money }}	{{ l.annual_interest_rate }}%	{{ l.term_months }} mo.	{{ l.status }}	{{ l.repaid|money }}	{% if current_role == 'admin' and l.status == 'pending' %}
+Approve
+{% else %}—{% endif %}
+No loans yet.
+{% endblock %}
