@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block title %}Savings · Great Minds Cooperative{% endblock %} {% block content %}
+Savings
+{% if current_role == 'admin' %}Member
+Select member
+{% endif %}
+Amount
+ Type
+Deposit
+ Date
+mm/dd/yyyy
+ Description
+Record savings
+{% for s in savings %}{% else %}{% endfor %}
+Date	Member	Type	Amount	Description
+{{ s.transaction_date }}	{{ s.member_no }} — {{ s.first_name }} {{ s.last_name }}	{{ s.transaction_type }}	{{ s.amount|money }}	{{ s.description }}
+No savings transactions.
+{% endblock %}
