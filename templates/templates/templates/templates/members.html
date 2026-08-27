@@ -1,0 +1,8 @@
+{% extends "base.html" %} {% block title %}Members · Great Minds Cooperative{% endblock %} {% block content %}
+Members
++ Add member
+{% for m in members %}{% else %}{% endfor %}
+Member No.	Name	Phone	Email	Status
+{{ m.member_no }}	{{ m.first_name }} {{ m.last_name }}	{{ m.phone }}	{{ m.email or '—' }}	{{ m.status }}
+No members yet.
+{% endblock %}
